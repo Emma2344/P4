@@ -1,0 +1,129 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <!--DEVELOPER Emmanuelna Surpris, IS117-004, Spring 2025-->
+    <head>
+        <title>Add New Customer</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../css/banking.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.min.js"></script>
+	    <script src="js/jquery.slicknav.min.js"></script>
+	    <link rel="stylesheet" href="../css/slicknav.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="../images/logo.jpg"  height="80" alt="bank logo">
+            </div>
+            <div class="bank-info">
+                <h2 class="bank-name">OneStop Bank</h2>
+                <p class="slogan">Where Banking Meets Efficiency</p>
+            </div>
+        </header>
+        <nav id="nav_menu">
+            <ul class="nav">
+                <li class="nav-item"><a class="nav-link current"href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link"href="./contact.html">Contact</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Resources</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="">Branch and ATM</a></li>
+                        <li><a class="dropdown-item" href="">Account and Loan</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="">Sign Up/Log In</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="./signup.html">Sign Up</a></li>
+                        <li><a class="dropdown-item" href="./login.html">Log In</a></li>
+                    </ul>
+                    
+                </li>
+            </ul>
+        </nav>
+        <nav id="mobile_menu"></nav>
+        <form action="/submit" method="POST" id="add-account-form">
+            <section class="container" id="step1">
+                <h3>Section 1</h3>
+                <div class="form-group">
+                    <label for="first-name" class="form-label">First Name: <span class="required">*</label>
+                    <input type="text" id="first-name" name="firstName" class="form-control" required>
+                </div>
+                <div>
+                    <label for="middle-name" class="form-label">Middle Name:</label>
+                    <input type="text" id="middle-name" name="middleName" class="form-control">
+                </div>
+                <div>
+                    <label for="last-name" class="form-label">Last Name: <span class="required">*</span></label>
+                    <input type="text" id="last-name" name="lastName" class="form-control" required>
+                </div>
+                <div>
+                    <label for="dob" class="form-label">Date of Birth: <span class="required">*</span></label>
+                    <input type="date" id="dob" name="dob" class="form-control" required>
+                </div>
+                <div>
+                    <label for="address" class="form-label">Address: <span class="required">*</span></label>
+                    <input type="address" id="address" name="address" class="form-control" required>
+                </div>
+                <div>
+                    <label for="email" class="form-label">Email: <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div>
+                    <label for="phone">Phone Number: <span class="required">*</span></label>
+                    <input class="form-control" type="tel" id="phone" name="phone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="000-00-000" required>
+                </div>
+                <div class="next-section">
+                    <button id="next" type="button" class="btn btn-primary">Next</button>             
+                </div>
+            </section>
+
+            <section class="container" id="step2" style="display: none;">
+                <h3>Section 2</h3>
+                <div class="account_type">
+                    <p><strong>Account Type: <span class="required">*</span></strong></p>
+                    <label for="saving" class="form-label">Saving</label>
+                    <input type="radio" id="saving" name="accountType" value="saving" required>
+
+                    <label for="checking" class="form-label">Checking</label>
+                    <input type="radio" id="checking" name="accountType" value="checking" required>
+                    
+                    <label for="business" class="form-label">Business</label>
+                    <input type="radio" id="business" name="accountType" value="business" required>
+
+                    <label for="student" class="form-label">Student</label>
+                    <input type="radio" id="student" name="accountType" value="student" required>
+                </div>
+                <div>
+                    <label id="deposit">Deposit Amount: <span class="required">*</label>
+                    <input type="number" id="deposit" name="depositAmount" pattern="[0-9]+\.[0-9]{2}" required>
+                </div>
+                <div class="beneficiary">
+                        <label for="ben-name" class="form-label">Beneficiary Name:</label>
+                        <input type="text" id="ben-name" name="benName" class="form-control">
+                        <label for="ben-email" class="form-label">Beneficiary Email:</label>
+                        <input type="text" id="ben-email" name="benEmail" class="form-control">
+                        <label for="ben-phone">Beneficiary Phone Number:</label>
+                        <input class="form-control" type="tel" id="ben-phone" name="benPhone" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}" placeholder="000-00-000">
+                </div>
+                <div class="submit-button">
+                    <input type="submit" value="Submit" class="btn btn-success">
+                </div>
+            </section>
+        </form>
+        <footer class="container-fluid">
+            <h3>Site Map:</h3>  
+            <p><a href="">Terms of Service</a> | <a href="">Privacy Statement</a></p>
+            <p>&copy; 2025 Emmanuelna Surpris</p>
+        </footer>
+        <script>
+            $(document).ready(function(){
+              $('#nav_menu > ul').slicknav({
+                prependTo: '#mobile_menu'
+              });
+            });
+        </script>
+    </body>
+</html>
